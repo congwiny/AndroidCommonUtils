@@ -1,6 +1,7 @@
 package org.lib.androidutils;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.view.View;
 
@@ -26,5 +27,17 @@ public class SystemUtils {
 		int dip = context.getResources().getDisplayMetrics().densityDpi;
 		float factor = dip/160f;
 		return pixel*factor;
+	}
+	
+	/**
+	 * 判断是否拥有某个权限
+	 * @param context
+	 * @param permission
+	 * @return
+	 */
+	public static boolean checkPermissions(Context context, String permission) {
+		PackageManager localPackageManager = context.getPackageManager();
+		return localPackageManager.checkPermission(permission, context
+				.getPackageName()) == PackageManager.PERMISSION_GRANTED;
 	}
 }
