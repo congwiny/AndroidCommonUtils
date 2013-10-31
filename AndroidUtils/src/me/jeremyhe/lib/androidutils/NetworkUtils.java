@@ -1,4 +1,4 @@
-package org.lib.androidutils;
+package me.jeremyhe.lib.androidutils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

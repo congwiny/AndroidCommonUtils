@@ -1,5 +1,6 @@
-package org.lib.androidutils;
+package me.jeremyhe.lib;
 
+import me.jeremyhe.lib.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

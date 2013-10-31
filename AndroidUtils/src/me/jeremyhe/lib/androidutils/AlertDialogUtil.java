@@ -1,4 +1,4 @@
-package org.lib.androidutils;
+package me.jeremyhe.lib.androidutils;
 
 import android.app.AlertDialog;
 import android.content.Context;
