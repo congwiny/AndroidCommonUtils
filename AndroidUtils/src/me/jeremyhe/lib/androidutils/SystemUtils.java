@@ -43,6 +43,11 @@ public class SystemUtils {
 				.getPackageName()) == PackageManager.PERMISSION_GRANTED;
 	}
 	
+	/**
+	 * 显示或者隐藏输入法
+	 * @param activity
+	 * @param show
+	 */
 	public static void showInputMethod(Activity activity,boolean show){
 		InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
 		if (show) {
