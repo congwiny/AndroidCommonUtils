@@ -13,7 +13,7 @@ public class DateUtils {
 	private static final int thisMonth = todayCal.get(Calendar.MONTH);
 	private static final int thisDayOfMonth = todayCal.get(Calendar.DAY_OF_MONTH);
 	
-	public static final String format_yyyy_MM_dd__hh_mm = "yyyy-MM-dd hh:mm";
+	public static final String format_yyyy_MM_dd__HH_mm = "yyyy-MM-dd HH:mm";
 	
 	public static String format(Date date,String pattern){
 		SimpleDateFormat format = new SimpleDateFormat(pattern,Locale.CHINA);
@@ -28,7 +28,7 @@ public class DateUtils {
 	public static Date getBeginOfTheDate(Date date){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		cal.set(Calendar.HOUR, 0);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND,0);
 		return cal.getTime();
@@ -48,6 +48,12 @@ public class DateUtils {
 		return getEndOfTheDate(today);
 	}
 	
+	public static Date getEndOfDate(){
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(calendar.YEAR, 9999);
+		return calendar.getTime();
+	}
+	
 	/**
 	 * 获取当天的最晚时刻
 	 * @param date
@@ -56,10 +62,20 @@ public class DateUtils {
 	public static Date getEndOfTheDate(Date date){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		cal.set(Calendar.HOUR,23);
+		cal.set(Calendar.HOUR_OF_DAY,23);
 		cal.set(Calendar.MINUTE, 59);
 		cal.set(Calendar.SECOND,59);
 		return cal.getTime();
+	}
+	
+	public static Date getEndOfTmr(){
+		Date tomorrow = addDay(today, 1);
+		return getEndOfTheDate(tomorrow);
+	}
+	
+	public static Date getEndOfAfterTmr(){
+		Date afterTmr = addDay(today, 2);
+		return getEndOfTheDate(afterTmr);
 	}
 	
 	public static Date addDay(Date date, int n){

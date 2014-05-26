@@ -23,10 +23,10 @@ public class SystemUtils {
 	 * @param pixel
 	 * @return
 	 */
-	public static float getExactPixel(Context context, float pixel) {
+	public static float getExactPixel(Context context, float dp) {
 		int dip = context.getResources().getDisplayMetrics().densityDpi;
 		float factor = dip/160f;
-		return pixel*factor;
+		return dp*factor;
 	}
 	
 	/**
