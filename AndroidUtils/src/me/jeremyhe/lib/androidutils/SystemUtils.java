@@ -1,9 +1,11 @@
 package me.jeremyhe.lib.androidutils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 public class SystemUtils {
 	/**
@@ -40,4 +42,20 @@ public class SystemUtils {
 		return localPackageManager.checkPermission(permission, context
 				.getPackageName()) == PackageManager.PERMISSION_GRANTED;
 	}
+	
+	/**
+	 * 显示或者隐藏输入法
+	 * @param activity
+	 * @param show
+	 */
+	public static void showInputMethod(Activity activity,boolean show){
+		InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+		if (show) {
+			inputMethodManager.showSoftInput(activity.getCurrentFocus(), InputMethodManager.SHOW_FORCED);
+		} else {
+			inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
+	}
+	
+
 }
