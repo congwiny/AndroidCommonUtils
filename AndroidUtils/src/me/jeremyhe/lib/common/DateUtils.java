@@ -14,6 +14,7 @@ public class DateUtils {
 	private static final int thisDayOfMonth = todayCal.get(Calendar.DAY_OF_MONTH);
 	
 	public static final String format_yyyy_MM_dd__HH_mm = "yyyy-MM-dd HH:mm";
+	public static final String format_yyyy_MM_dd = "yyyy-MM-dd";
 	
 	public static String format(Date date,String pattern){
 		SimpleDateFormat format = new SimpleDateFormat(pattern,Locale.CHINA);
