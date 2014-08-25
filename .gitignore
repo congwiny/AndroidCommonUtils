@@ -17,3 +17,7 @@ local.properties
 
 # Eclipse project files
 .classpath
+
+#.settings
+org.eclipse.jdt.core.prefs
+.settings/
