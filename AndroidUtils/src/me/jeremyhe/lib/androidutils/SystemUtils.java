@@ -46,17 +46,23 @@ public class SystemUtils {
 	}
 	
 	/**
-	 * 显示或者隐藏输入法
+	 * 显示输入法
 	 * @param activity
 	 * @param show
 	 */
-	public static void showInputMethod(Activity activity,boolean show){
+	public static void showInputMethod(Activity activity){
 		InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-		if (show) {
-			inputMethodManager.showSoftInput(activity.getCurrentFocus(), InputMethodManager.SHOW_FORCED);
-		} else {
-			inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-		}
+		inputMethodManager.showSoftInput(activity.getCurrentFocus(), InputMethodManager.SHOW_FORCED);
+	}
+	
+	/**
+	 * 隐藏输入法
+	 * @param activity
+	 * @param show
+	 */
+	public static void hideInputMethod(Activity activity){
+		InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 	
 	
