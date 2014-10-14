@@ -79,6 +79,18 @@ public class DateUtils {
 		return getEndOfTheDate(afterTmr);
 	}
 	
+	public static Date addMinute(Date date, int n){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.MINUTE, n);
+		return cal.getTime();
+	}
+	public static Date addHour(Date date, int n){
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.HOUR_OF_DAY, n);
+		return cal.getTime();
+	}
 	public static Date addDay(Date date, int n){
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
