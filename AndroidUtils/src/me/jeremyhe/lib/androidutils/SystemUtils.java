@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
+import android.media.AudioManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -94,4 +95,9 @@ public class SystemUtils {
 	    return true;
 	}
 
+	public static int getCurrentRingVolume(Context ctx) {
+		AudioManager audioManager = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
+		return audioManager.getStreamVolume(AudioManager.STREAM_RING);
+	}
+	
 }
