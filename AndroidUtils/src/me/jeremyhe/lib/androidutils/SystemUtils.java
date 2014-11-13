@@ -4,7 +4,9 @@ import java.io.DataOutputStream;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Rect;
 import android.media.AudioManager;
 import android.view.View;
@@ -95,9 +97,32 @@ public class SystemUtils {
 	    return true;
 	}
 
+	/**
+	 * 获取当前铃声大小
+	 * @param ctx
+	 * @return
+	 */
 	public static int getCurrentRingVolume(Context ctx) {
 		AudioManager audioManager = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
 		return audioManager.getStreamVolume(AudioManager.STREAM_RING);
 	}
 	
+	/**
+	 * 获取当前版本名
+	 * @return
+	 */
+	public static String getCurrentVersionName(Context ctx){
+    	String versionName="最新";
+    	PackageInfo pi;
+		try {
+			pi = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0);
+			if(pi != null){
+	    		versionName=pi.versionName;
+	    	}
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+    	
+    	return versionName;
+    }
 }
