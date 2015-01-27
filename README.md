@@ -9,7 +9,7 @@ Some common tools for android develop.
 Installing
 ---------------
 ###Gradle
-添加以下依赖关系
+添加以下依赖关系  
 Add the following gradle dependency.
 ```groovy
 dependencies {
@@ -18,7 +18,7 @@ dependencies {
 ```
 
 ###Cloning
-通过git clone命令clone项目
+通过git clone命令clone项目  
 First of all you will have to clone the library.
 ```shell
 git clone https://github.com/JeremyHe-cn/AndroidCommonUtils.git
