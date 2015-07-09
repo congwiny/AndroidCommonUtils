@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion 17
@@ -18,5 +19,18 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
+    compile 'com.android.support:support-v4:22.0.0'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://127.0.0.1:8081/nexus/content/repositories/releases/") {
+                authentication(userName: 'admin', password: 'admin123')
+            }
+            pom.groupId = 'me.zlv.lib.androidutils'
+            pom.artifactId = 'androidUtils'
+            pom.version = '1.0'
+        }
+    }
 }
