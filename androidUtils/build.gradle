@@ -24,13 +24,14 @@ dependencies {
 
 uploadArchives {
     repositories {
-        mavenDeployer {
-            repository(url: "http://127.0.0.1:8081/nexus/content/repositories/releases/") {
-                authentication(userName: 'admin', password: 'admin123')
-            }
-            pom.groupId = 'me.zlv.lib.androidutils'
-            pom.artifactId = 'androidUtils'
-            pom.version = '1.0'
-        }
+        mavenLocal()
+//        mavenDeployer {
+//            repository(url: "http://127.0.0.1:8081/nexus/content/repositories/releases/") {
+//                authentication(userName: 'admin', password: 'admin123')
+//            }
+//            pom.groupId = 'me.zlv.lib.androidutils'
+//            pom.artifactId = 'androidUtils'
+//            pom.version = '1.0'
+//        }
     }
 }
