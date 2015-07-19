@@ -1,6 +1,6 @@
 package me.jeremyhe.androidutilexample;
 
-import me.jeremyhe.lib.widget.FlipDigitView;
+import me.zlv.lib.widget.FlipDigitView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

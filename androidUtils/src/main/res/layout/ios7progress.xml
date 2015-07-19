@@ -20,7 +20,7 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <me.jeremyhe.lib.widget.IOS7LikeProgressSpinner
+    <me.zlv.lib.widget.IOS7LikeProgressSpinner
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="10dp"

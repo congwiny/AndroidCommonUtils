@@ -11,7 +11,7 @@
     android:paddingRight="30dp"
     android:paddingTop="25dp" >
 
-    <me.jeremyhe.lib.widget.IOSLikeProgressSpinner
+    <me.zlv.lib.widget.IOSLikeProgressSpinner
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:paddingBottom="20dp" />

@@ -1,7 +1,7 @@
-package me.jeremyhe.lib.widget;
+package me.zlv.lib.widget;
 
-import me.jeremyhe.lib.R;
-import android.R.bool;
+import me.zlv.lib.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
