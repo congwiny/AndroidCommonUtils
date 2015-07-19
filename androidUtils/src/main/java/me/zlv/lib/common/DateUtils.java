@@ -7,7 +7,6 @@ import java.util.Locale;
 
 public class DateUtils {
 	
-	private static final Date today = new Date();
 	private static final Calendar todayCal = Calendar.getInstance();
 	private static final int thisYear = todayCal.get(Calendar.YEAR);
 	private static final int thisMonth = todayCal.get(Calendar.MONTH);
@@ -16,7 +15,7 @@ public class DateUtils {
 	public static final String format_yyyy_MM_dd__HH_mm = "yyyy-MM-dd HH:mm";
 	public static final String format_yyyy_MM_dd = "yyyy-MM-dd";
 	
-	public static String format(Date date,String pattern){
+	public static String format(Date date, String pattern){
 		SimpleDateFormat format = new SimpleDateFormat(pattern,Locale.CHINA);
 		return format.format(date);
 	}
@@ -36,17 +35,17 @@ public class DateUtils {
 	}
 	
 	public static Date getBeginOfTomorrow(){
-		Date tomorrow = addDay(today, 1);
+		Date tomorrow = addDay(new Date(), 1);
 		return getBeginOfTheDate(tomorrow);
 	}
 	
 	public static Date getBeginOfAfterTomorrow(){
-		Date afterTmr = addDay(today, 2);
+		Date afterTmr = addDay(new Date(), 2);
 		return getBeginOfTheDate(afterTmr);
 	}
 	
 	public static Date getEndOfToday(){
-		return getEndOfTheDate(today);
+		return getEndOfTheDate(new Date());
 	}
 	
 	public static Date getEndOfDate(){
@@ -57,8 +56,6 @@ public class DateUtils {
 	
 	/**
 	 * 获取当天的最晚时刻
-	 * @param date
-	 * @return
 	 */
 	public static Date getEndOfTheDate(Date date){
 		Calendar cal = Calendar.getInstance();
@@ -70,12 +67,12 @@ public class DateUtils {
 	}
 	
 	public static Date getEndOfTmr(){
-		Date tomorrow = addDay(today, 1);
+		Date tomorrow = addDay(new Date(), 1);
 		return getEndOfTheDate(tomorrow);
 	}
 	
 	public static Date getEndOfAfterTmr(){
-		Date afterTmr = addDay(today, 2);
+		Date afterTmr = addDay(new Date(), 2);
 		return getEndOfTheDate(afterTmr);
 	}
 	
@@ -97,17 +94,25 @@ public class DateUtils {
 		cal.add(Calendar.DATE, n);
 		return cal.getTime();
 	}
+
+	/**
+	 * 是否在24小时之内
+	 */
+	public static boolean in24Hours(final Date date) {
+		Date _24HoursLater = addDay(new Date(), 1);
+		return _24HoursLater.getTime() > date.getTime();
+	}
 	
 	public static boolean isToday(final Date date){
-		return isTheSameDay(today, date);
+		return isTheSameDay(new Date(), date);
 	}
 	
 	public static boolean isTomorrow(final Date date){
-		return isTmrOfTheDate(today, date);
+		return isTmrOfTheDate(new Date(), date);
 	}
 	
 	public static boolean isAfterTmr(final Date date){
-		return isAfterTmrOfTheDate(today, date);
+		return isAfterTmrOfTheDate(new Date(), date);
 	}
 	
 	public static boolean isTheSameDay(final Date theDate,final Date checkDate){
